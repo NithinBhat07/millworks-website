@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Section, Eyebrow } from "@/components/Section";
 import { company, machines, metrologyEquipment } from "@/data/company";
 import { industries } from "@/data/industries";
@@ -10,7 +11,17 @@ export default function Home() {
       {/* Hero */}
       <section className="border-b border-[var(--color-border)] bg-[var(--color-ink)] text-white">
         <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
-          <Eyebrow>Precision Manufacturing · Bengaluru, India</Eyebrow>
+          <Image
+            src="/brand/logo-light-full.png"
+            alt="Millworks — Machining your Concept"
+            width={2048}
+            height={506}
+            priority
+            className="h-20 w-auto sm:h-24"
+          />
+          <Eyebrow>
+            <span className="mt-10 inline-block">Precision Manufacturing · Bengaluru, India</span>
+          </Eyebrow>
           <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
             State-of-the-art manufacturing for Aerospace, Railways and Semiconductor industries
           </h1>

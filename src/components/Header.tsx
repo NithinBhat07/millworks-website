@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { Container } from "./Container";
 
@@ -18,11 +19,15 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-white/95 backdrop-blur">
       <Container className="flex h-16 items-center justify-between">
-        <Link href="/" className="text-lg font-semibold tracking-tight text-[var(--color-ink)]">
-          MILLWORKS
-          <span className="ml-2 hidden text-xs font-normal uppercase tracking-[0.2em] text-[var(--color-steel)] sm:inline">
-            Technologies Limited
-          </span>
+        <Link href="/" className="flex items-center" aria-label="Millworks Technologies Limited — home">
+          <Image
+            src="/brand/logo-dark.png"
+            alt="Millworks"
+            width={2048}
+            height={228}
+            priority
+            className="h-8 w-auto sm:h-9"
+          />
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">

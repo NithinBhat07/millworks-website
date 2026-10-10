@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "./Container";
 import { company, facilities } from "@/data/company";
 
@@ -7,7 +8,7 @@ export function Footer() {
     <footer className="mt-24 border-t border-[var(--color-border)] bg-[var(--color-paper)]">
       <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <div className="text-lg font-semibold tracking-tight text-[var(--color-ink)]">MILLWORKS</div>
+          <Image src="/brand/logo-dark.png" alt="Millworks" width={2048} height={228} className="h-7 w-auto" />
           <p className="mt-3 max-w-xs text-sm text-[var(--color-steel)]">
             {company.legalName} — precision manufacturing for aerospace, railways and semiconductor industries,
             based in {company.city}.
