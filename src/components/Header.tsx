@@ -18,7 +18,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-white/95 backdrop-blur">
-      <Container className="flex h-20 items-center justify-between gap-6">
+      <Container className="flex h-16 items-center justify-between gap-6">
         <Link href="/" className="flex shrink-0 items-center" aria-label="Millworks Technologies Limited — home">
           <Image
             src="/brand/logo-dark.png"
@@ -26,8 +26,8 @@ export function Header() {
             width={2048}
             height={228}
             priority
-            sizes="(min-width: 640px) 240px, 190px"
-            className="h-9 w-auto sm:h-10"
+            sizes="(min-width: 640px) 170px, 150px"
+            className="h-6 w-auto sm:h-7"
           />
         </Link>
 
