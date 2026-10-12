@@ -26,8 +26,8 @@ export function Header() {
             width={2048}
             height={228}
             priority
-            sizes="(min-width: 640px) 170px, 150px"
-            className="h-6 w-auto sm:h-7"
+            sizes="(min-width: 640px) 120px, 100px"
+            className="h-4 w-auto sm:h-5"
           />
         </Link>
 
