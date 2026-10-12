@@ -21,13 +21,13 @@ export function Header() {
       <Container className="flex h-16 items-center justify-between gap-6">
         <Link href="/" className="flex shrink-0 items-center" aria-label="Millworks Technologies Limited — home">
           <Image
-            src="/brand/logo-dark.png"
-            alt="Millworks"
+            src="/brand/logo-dark-full.png"
+            alt="Millworks — Machining your Concept"
             width={2048}
-            height={228}
+            height={506}
             priority
-            sizes="(min-width: 640px) 120px, 100px"
-            className="h-4 w-auto sm:h-5"
+            sizes="(min-width: 640px) 190px, 160px"
+            className="h-9 w-auto sm:h-10"
           />
         </Link>
 
