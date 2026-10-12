@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Section, Eyebrow } from "@/components/Section";
 import { industries, otherProductCategories } from "@/data/industries";
+import { industryArt } from "@/components/IndustryArt";
 
 export const metadata: Metadata = {
   title: "Industries",
@@ -18,19 +19,25 @@ export default function IndustriesPage() {
 
       <Section>
         <div className="grid gap-6 sm:grid-cols-3">
-          {industries.map((industry) => (
-            <Link
-              key={industry.slug}
-              href={`/industries/${industry.slug}`}
-              className="group rounded-sm border border-[var(--color-border)] p-6 transition-colors hover:border-[var(--color-accent)]"
-            >
-              <h2 className="text-lg font-semibold text-[var(--color-ink)]">{industry.name}</h2>
-              <p className="mt-2 text-sm text-[var(--color-steel)]">{industry.summary}</p>
-              <span className="mt-4 inline-block text-sm font-medium text-[var(--color-accent)] group-hover:underline">
-                Learn more →
-              </span>
-            </Link>
-          ))}
+          {industries.map((industry) => {
+            const Art = industryArt[industry.slug];
+            return (
+              <Link
+                key={industry.slug}
+                href={`/industries/${industry.slug}`}
+                className="group overflow-hidden rounded-sm border border-[var(--color-border)] transition-colors hover:border-[var(--color-accent)]"
+              >
+                <div className="aspect-[5/3] w-full">{Art && <Art />}</div>
+                <div className="p-6">
+                  <h2 className="text-lg font-semibold text-[var(--color-ink)]">{industry.name}</h2>
+                  <p className="mt-2 text-sm text-[var(--color-steel)]">{industry.summary}</p>
+                  <span className="mt-4 inline-block text-sm font-medium text-[var(--color-accent)] group-hover:underline">
+                    Learn more →
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
         </div>
 
         <div className="mt-14 rounded-sm border border-[var(--color-border)] bg-[var(--color-paper)] p-6">

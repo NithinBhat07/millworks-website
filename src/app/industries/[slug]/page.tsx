@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Section, Eyebrow } from "@/components/Section";
 import { industries } from "@/data/industries";
+import { industryArt } from "@/components/IndustryArt";
 
 export function generateStaticParams() {
   return industries.map((i) => ({ slug: i.slug }));
@@ -23,6 +24,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
   const { slug } = await params;
   const industry = industries.find((i) => i.slug === slug);
   if (!industry) notFound();
+  const Art = industryArt[industry.slug];
 
   return (
     <>
@@ -36,6 +38,12 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
         <h1 className="mt-3 text-4xl font-semibold tracking-tight">{industry.name}</h1>
         <p className="mt-4 max-w-2xl text-white/70">{industry.summary}</p>
       </Section>
+
+      {Art && (
+        <div className="h-48 w-full sm:h-64">
+          <Art />
+        </div>
+      )}
 
       <Section>
         <p className="max-w-2xl text-[var(--color-graphite)]">{industry.detail}</p>
@@ -57,7 +65,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
 
         <div className="mt-12">
           <Link href="/contact" className="inline-flex items-center rounded-sm bg-[var(--color-ink)] px-6 py-3 text-sm font-semibold text-white hover:bg-[var(--color-graphite)]">
-            Discuss a {industry.name.toLowerCase()} requirement
+            Discuss {/^[aeiou]/i.test(industry.name) ? "an" : "a"} {industry.name.toLowerCase()} requirement
           </Link>
         </div>
       </Section>

@@ -1,9 +1,9 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Section, Eyebrow } from "@/components/Section";
 import { company, machines, metrologyEquipment } from "@/data/company";
 import { industries } from "@/data/industries";
 import { capabilities } from "@/data/capabilities";
+import { industryArt } from "@/components/IndustryArt";
 
 export default function Home() {
   return (
@@ -11,17 +11,7 @@ export default function Home() {
       {/* Hero */}
       <section className="border-b border-[var(--color-border)] bg-[var(--color-ink)] text-white">
         <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
-          <Image
-            src="/brand/logo-light-full.png"
-            alt="Millworks — Machining your Concept"
-            width={2048}
-            height={506}
-            priority
-            className="h-20 w-auto sm:h-24"
-          />
-          <Eyebrow>
-            <span className="mt-10 inline-block">Precision Manufacturing · Bengaluru, India</span>
-          </Eyebrow>
+          <Eyebrow>Precision Manufacturing · Bengaluru, India</Eyebrow>
           <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
             State-of-the-art manufacturing for Aerospace, Railways and Semiconductor industries
           </h1>
@@ -64,19 +54,25 @@ export default function Home() {
           Built for mission-critical sectors
         </h2>
         <div className="mt-10 grid gap-6 sm:grid-cols-3">
-          {industries.map((industry) => (
-            <Link
-              key={industry.slug}
-              href={`/industries/${industry.slug}`}
-              className="group rounded-sm border border-[var(--color-border)] p-6 transition-colors hover:border-[var(--color-accent)]"
-            >
-              <h3 className="text-lg font-semibold text-[var(--color-ink)]">{industry.name}</h3>
-              <p className="mt-2 text-sm text-[var(--color-steel)]">{industry.summary}</p>
-              <span className="mt-4 inline-block text-sm font-medium text-[var(--color-accent)] group-hover:underline">
-                Learn more →
-              </span>
-            </Link>
-          ))}
+          {industries.map((industry) => {
+            const Art = industryArt[industry.slug];
+            return (
+              <Link
+                key={industry.slug}
+                href={`/industries/${industry.slug}`}
+                className="group overflow-hidden rounded-sm border border-[var(--color-border)] transition-colors hover:border-[var(--color-accent)]"
+              >
+                <div className="aspect-[5/3] w-full">{Art && <Art />}</div>
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold text-[var(--color-ink)]">{industry.name}</h3>
+                  <p className="mt-2 text-sm text-[var(--color-steel)]">{industry.summary}</p>
+                  <span className="mt-4 inline-block text-sm font-medium text-[var(--color-accent)] group-hover:underline">
+                    Learn more →
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </Section>
 

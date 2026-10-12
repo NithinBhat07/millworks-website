@@ -8,7 +8,14 @@ export function Footer() {
     <footer className="mt-24 border-t border-[var(--color-border)] bg-[var(--color-paper)]">
       <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <Image src="/brand/logo-dark.png" alt="Millworks" width={2048} height={228} className="h-7 w-auto" />
+          <Image
+            src="/brand/logo-dark.png"
+            alt="Millworks"
+            width={2048}
+            height={228}
+            sizes="220px"
+            className="h-8 w-auto"
+          />
           <p className="mt-3 max-w-xs text-sm text-[var(--color-steel)]">
             {company.legalName} — precision manufacturing for aerospace, railways and semiconductor industries,
             based in {company.city}.

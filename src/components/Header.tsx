@@ -18,31 +18,32 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-white/95 backdrop-blur">
-      <Container className="flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center" aria-label="Millworks Technologies Limited — home">
+      <Container className="flex h-20 items-center justify-between gap-6">
+        <Link href="/" className="flex shrink-0 items-center" aria-label="Millworks Technologies Limited — home">
           <Image
             src="/brand/logo-dark.png"
             alt="Millworks"
             width={2048}
             height={228}
             priority
-            className="h-8 w-auto sm:h-9"
+            sizes="(min-width: 640px) 240px, 190px"
+            className="h-9 w-auto sm:h-10"
           />
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
           {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-[var(--color-graphite)] transition-colors hover:text-[var(--color-accent)]"
+              className="whitespace-nowrap text-sm font-medium text-[var(--color-graphite)] transition-colors hover:text-[var(--color-accent)]"
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden shrink-0 lg:block">
           <Link
             href="/contact"
             className="inline-flex items-center rounded-sm bg-[var(--color-ink)] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[var(--color-graphite)]"
